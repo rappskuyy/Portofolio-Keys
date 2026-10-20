@@ -1,10 +1,10 @@
-export type ProjectCategory = 'all' | 'fullstack' | 'mobile';
+export type ProjectCategory = 'all' | 'smp' | 'sma' | 'fullstack' | 'mobile';
 
 export interface Project {
   id: string;
   title: string;
   subtitle: string;
-  category: 'fullstack' | 'mobile';
+  category: 'smp' | 'sma' | 'fullstack' | 'mobile';
   summary: string;
   description: string;
   architecture: string[];
@@ -12,6 +12,9 @@ export interface Project {
   highlights: string[];
   challenges: string;
   role: string;
+  eventVenue?: string;
+  eventDate?: string;
+  awardBadge?: string;
   demoUrl?: string;
   githubUrl?: string;
   isPrivateRepo?: boolean;
@@ -24,11 +27,12 @@ export interface Project {
   metrics: { label: string; value: string }[];
 }
 
-export type TechLayer = 'client' | 'backend' | 'database' | 'devops';
+export type TechLayer = 'arsenal' | 'awards' | 'beyond' | 'bring' | 'client' | 'backend' | 'database' | 'devops';
 
 export interface TechItem {
+  id?: string;
   name: string;
-  category: 'frontend' | 'mobile' | 'backend' | 'tools';
+  category: 'arsenal' | 'sports' | 'beyond' | 'awards' | 'bring' | 'academic' | 'frontend' | 'mobile' | 'backend' | 'tools';
   layer: TechLayer;
   iconKey: string;
   color: string;
@@ -36,6 +40,8 @@ export interface TechItem {
   usageContext: string;
   projectLinks?: string[];
   roleTag?: string;
+  proofMetric?: string;
+  highlights?: string[];
 }
 
 export interface ExperienceItem {
@@ -44,7 +50,7 @@ export interface ExperienceItem {
   organization: string;
   period: string;
   badge?: string;
-  category?: 'education' | 'bootcamp' | 'project' | 'security';
+  category?: 'elementary' | 'junior' | 'highschool' | 'target' | 'education' | 'bootcamp' | 'project' | 'security' | string;
   description: string;
   highlights?: string[];
   tech: string[];

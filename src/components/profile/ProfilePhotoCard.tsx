@@ -52,8 +52,8 @@ export const ProfilePhotoCard: React.FC<ProfilePhotoCardProps> = ({ isFlooded })
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/75 via-transparent to-transparent opacity-65 pointer-events-none" />
 
           <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-[#fffdf5]/90 border border-[#e8dbc0] backdrop-blur-md shadow-sm">
-            <div className="text-sm font-bold text-[#0f172a]">
-              {profileData.name}
+            <div className="text-center text-sm font-bold text-[#0f172a]">
+              M KEYSHA ALFARO
             </div>
             <div className="text-xs text-[#8c6239] font-mono mt-0.5">
               {profileData.education}
@@ -63,7 +63,7 @@ export const ProfilePhotoCard: React.FC<ProfilePhotoCardProps> = ({ isFlooded })
 
         <div className="mt-3 px-2 flex items-center justify-between text-[11px] font-mono text-[#8c6239]">
           <span>FOTO PROFIL</span>
-          <span>ID // REYHAND ASTRA</span>
+          <span>ID // M KEYSHA ALFARO</span>
         </div>
       </div>
 
@@ -76,7 +76,7 @@ export const ProfilePhotoCard: React.FC<ProfilePhotoCardProps> = ({ isFlooded })
           <MapPin className="w-4 h-4 text-[#8c6239]" />
           <span>Indonesia</span>
         </div>
-        <span className="text-[#0284c7] font-bold">Linux Enthusiasts</span>
+        <span className="text-[#0284c7] font-bold">Tech Enthusiasts</span>
       </motion.div>
     </motion.div>
   );

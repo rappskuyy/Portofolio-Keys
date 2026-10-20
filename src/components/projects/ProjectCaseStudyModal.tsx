@@ -7,8 +7,7 @@ import {
   CheckCircle2,
   AlertTriangle,
   Layers,
-  Code2,
-  Smartphone
+  Code2
 } from 'lucide-react';
 import type { Project } from '../../types/portfolio';
 import { ProjectPreviewPlaceholder } from './ProjectPreviewPlaceholder';
@@ -75,7 +74,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
             <div>
               <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
                 <span className="text-[10px] sm:text-xs font-mono font-black uppercase tracking-wider text-[#0f172a] bg-[#fde047] px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg border-2 border-[#0f172a]">
-                  {project.category === 'fullstack' ? 'FULL-STACK WEB ARCHITECTURE' : 'MOBILE FLUTTER SYSTEM'}
+                  {project.category === 'sma' ? 'KEJUARAAN BASKET TINGKAT SMA' : 'TURNAMEN BASKET TINGKAT SMP'}
                 </span>
                 <span className="text-[10px] sm:text-xs font-mono font-bold text-[#64748b]">
                   // {project.role}
@@ -94,7 +93,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
               type="button"
               onClick={onClose}
               className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl bg-[#fff9d4] hover:bg-[#fee2e2] border-2 border-[#0f172a] text-[#0f172a] hover:text-[#dc2626] shadow-[2px_2px_0px_#0f172a] sm:shadow-[3px_3px_0px_#0f172a] hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none transition-all cursor-pointer shrink-0"
-              aria-label="Tutup studi kasus"
+              aria-label="Tutup rincian prestasi"
             >
               <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
@@ -133,7 +132,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
           <div className="space-y-2">
             <h4 className="text-[11px] sm:text-xs font-mono uppercase font-black text-[#0f172a] flex items-center gap-2">
               <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#0284c7]" />
-              <span>Latar Belakang &amp; Mandat Proyek</span>
+              <span>Latar Belakang &amp; Detail Penyelenggaraan</span>
             </h4>
             <p className="text-xs sm:text-base text-[#334155] leading-relaxed bg-[#fff9d4] p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border-2 border-[#0f172a]/30 font-medium">
               {project.description}
@@ -144,7 +143,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
           <div className="space-y-3">
             <h4 className="text-xs font-mono uppercase font-black text-[#0f172a] flex items-center gap-2">
               <Code2 className="w-4 h-4 text-[#0284c7]" />
-              <span>Arsitektur Sistem &amp; Eksekusi Teknis</span>
+              <span>Sorotan Pencapaian &amp; Taktik Pertandingan</span>
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {project.architecture.map((item, idx) => (
@@ -163,10 +162,10 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
           <div className="space-y-2.5">
             <h4 className="text-xs font-mono uppercase font-black text-[#854d0e] flex items-center gap-2">
               <AlertTriangle className="w-4 h-4 text-[#ca8a04]" />
-              <span>Tantangan Utama &amp; Resolusi</span>
+              <span>Tantangan Lapangan &amp; Kunci Kemenangan</span>
             </h4>
             <div className="p-4 sm:p-5 rounded-2xl bg-[#fef9c3] border-2 border-[#0f172a]/30 text-xs sm:text-sm text-[#0f172a] leading-relaxed">
-              <p className="font-black text-[#854d0e] mb-1">Tantangan yang Dihadapi:</p>
+              <p className="font-black text-[#854d0e] mb-1">Kondisi Laga &amp; Tantangan:</p>
               <p className="text-[#334155] font-medium">{project.challenges}</p>
             </div>
           </div>
@@ -174,7 +173,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
           {/* technology stack */}
           <div className="space-y-2.5">
             <h4 className="text-xs font-mono uppercase font-black text-[#0f172a]">
-              Daftar Stack Teknologi &amp; Protokol
+              Kategori &amp; Spesialisasi Cabang Terkait
             </h4>
             <div className="flex flex-wrap gap-2">
               {project.stack.map((tech) => (
@@ -191,16 +190,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
           {/* dialog action buttons */}
           <div className="pt-6 border-t-2 border-[#0f172a]/20 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-3">
-              {/* demo status */}
-              {project.isMobileApp ? (
-                <div
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#e0f2fe] text-[#0369a1] text-xs font-mono font-bold border-2 border-[#0284c7]/50 opacity-90 cursor-not-allowed"
-                  title={project.demoStatusLabel || 'Aplikasi Mobile Native'}
-                >
-                  <Smartphone className="w-4 h-4 text-[#0284c7]" />
-                  <span>Aplikasi Mobile Native (Demo/APK on request)</span>
-                </div>
-              ) : project.demoUrl ? (
+              {project.demoUrl ? (
                 <a
                   href={project.demoUrl}
                   target="_blank"
@@ -208,7 +198,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
                   className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white text-xs font-mono font-black border-2 border-[#0f172a] shadow-[3px_3px_0px_#0f172a] hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none transition-all"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  <span>Kunjungi Live Demo</span>
+                  <span>Lihat Dokumentasi / Link Event</span>
                 </a>
               ) : null}
 

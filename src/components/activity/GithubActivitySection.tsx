@@ -15,8 +15,8 @@ const formatIndonesianDateShort = (dateString: string): string => {
 
 export const GithubActivitySection: React.FC = () => {
   // extract github username from profile data url
-  const githubUrl = profileData.contact.github || 'https://github.com/ryhndastra';
-  const username = githubUrl.split('/').filter(Boolean).pop() || 'ryhndastra';
+  const githubUrl = profileData.contact.github || 'https://github.com/sapilanang';
+  const username = githubUrl.split('/').filter(Boolean).pop() || 'sapilanang';
 
   const { data, loading, error, selectedYear, setSelectedYear, stats } = useGithubContributions(username);
 

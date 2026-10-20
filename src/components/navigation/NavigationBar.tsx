@@ -14,10 +14,10 @@ export const NavigationBar: React.FC = () => {
 
   const navItems = [
     { label: 'Profil', id: 'about' },
-    { label: 'Studi Kasus', id: 'projects' },
-    { label: 'Tech Stack', id: 'stack' },
+    { label: 'Prestasi', id: 'projects' },
+    { label: 'Personal Arsenal', id: 'stack' },
     { label: 'Aktivitas', id: 'activity' },
-    { label: 'Milestone', id: 'journey' },
+    { label: 'Pendidikan', id: 'journey' },
     { label: 'Kontak', id: 'contact' },
   ];
 

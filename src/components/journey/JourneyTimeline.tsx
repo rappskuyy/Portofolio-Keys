@@ -2,9 +2,10 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import {
   GraduationCap,
-  Layers,
-  Rocket,
-  ShieldCheck,
+  BookOpen,
+  Trophy,
+  Flame,
+  Globe,
   Calendar,
   CheckCircle2,
   Compass
@@ -24,36 +25,44 @@ const categoryConfig: Record<
     tagBorder: string;
   }
 > = {
-  education: {
-    icon: GraduationCap,
+  elementary: {
+    icon: BookOpen,
     nodeBg: 'bg-[#fde047]',
     nodeText: 'text-[#0f172a]',
-    tagBg: 'bg-[#fde047]',
-    tagText: 'text-[#0f172a]',
+    tagBg: 'bg-[#fef08a]',
+    tagText: 'text-[#854d0e]',
     tagBorder: 'border-[#0f172a]'
   },
-  bootcamp: {
-    icon: Layers,
+  junior: {
+    icon: Trophy,
     nodeBg: 'bg-[#38bdf8]',
     nodeText: 'text-[#0f172a]',
     tagBg: 'bg-[#e0f2fe]',
     tagText: 'text-[#0284c7]',
     tagBorder: 'border-[#0f172a]'
   },
-  project: {
-    icon: Rocket,
+  highschool: {
+    icon: Flame,
     nodeBg: 'bg-[#4ade80]',
     nodeText: 'text-[#0f172a]',
     tagBg: 'bg-[#dcfce7]',
     tagText: 'text-[#15803d]',
     tagBorder: 'border-[#0f172a]'
   },
-  security: {
-    icon: ShieldCheck,
-    nodeBg: 'bg-[#fb7185]',
+  target: {
+    icon: Globe,
+    nodeBg: 'bg-[#c084fc]',
     nodeText: 'text-[#0f172a]',
-    tagBg: 'bg-[#fee2e2]',
-    tagText: 'text-[#dc2626]',
+    tagBg: 'bg-[#f3e8ff]',
+    tagText: 'text-[#7e22ce]',
+    tagBorder: 'border-[#0f172a]'
+  },
+  education: {
+    icon: GraduationCap,
+    nodeBg: 'bg-[#fde047]',
+    nodeText: 'text-[#0f172a]',
+    tagBg: 'bg-[#fde047]',
+    tagText: 'text-[#0f172a]',
     tagBorder: 'border-[#0f172a]'
   }
 };
@@ -105,15 +114,15 @@ export const JourneyTimeline: React.FC = () => {
         >
           <div className="flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-xl bg-[#fde047] text-[#0f172a] text-xs font-mono font-black border-2 border-[#0f172a] shadow-[2px_2px_0px_#0f172a] sm:shadow-[3px_3px_0px_#0f172a] w-fit">
             <Compass className="w-3.5 h-3.5" />
-            <span>MILESTONE</span>
+            <span>04 // JEJAK PENDIDIKAN</span>
           </div>
 
           <div className="space-y-1 sm:space-y-1.5">
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0f172a] tracking-tight leading-[1.08]">
-              Milestone
+              Jejak Pendidikan &amp; Impian
             </h2>
             <p className="text-xs sm:text-base font-medium text-[#475569] max-w-2xl leading-relaxed">
-              Pendidikan sarjana informatika, program bootcamp intensif, inisiatif mandiri, dan eksplorasi keamanan siber.
+              Perjalanan akademis dan pembentukan karakter dari jenjang sekolah dasar, menengah, hingga cita-cita menembus universitas impian kelas dunia.
             </p>
           </div>
         </motion.div>
@@ -125,7 +134,7 @@ export const JourneyTimeline: React.FC = () => {
             {/* vertical progress */}
             <motion.div
               style={{ scaleY: smoothProgress, transformOrigin: 'top' }}
-              className="w-full h-full bg-gradient-to-b from-[#fde047] via-[#38bdf8] via-[#4ade80] to-[#fb7185] rounded-full shadow-[0_0_16px_rgba(56,189,248,0.9)]"
+              className="w-full h-full bg-gradient-to-b from-[#fde047] via-[#38bdf8] via-[#4ade80] to-[#c084fc] rounded-full shadow-[0_0_16px_rgba(192,132,252,0.9)]"
             />
           </div>
 
@@ -196,7 +205,7 @@ export const JourneyTimeline: React.FC = () => {
                   {item.highlights && item.highlights.length > 0 && (
                     <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#fff9d4]/80 border border-[#0f172a]/20 sm:border-2 sm:border-[#0f172a]/15 space-y-1.5 sm:space-y-2">
                       <div className="text-[10px] sm:text-[11px] font-mono font-black uppercase tracking-wider text-[#475569]">
-                        Poin Kunci &amp; Spesialisasi
+                        Sorotan &amp; Karakteristik Jenjang
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
                         {item.highlights.map((hl, hIdx) => (

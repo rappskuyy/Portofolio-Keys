@@ -19,9 +19,9 @@ import { profileData } from '../../data/portfolioData';
 import { ContactOceanCanvas } from './ContactOceanCanvas';
 
 const inquiryTopics = [
-  { id: 'web', label: 'Full-Stack Web', subject: 'Inquiry: Full-Stack Web Development' },
-  { id: 'mobile', label: 'Mobile App (Flutter)', subject: 'Inquiry: Flutter Mobile App' },
-  { id: 'collab', label: 'Diskusi Santai', subject: 'Inquiry: Collaboration & Discussion' }
+  { id: 'web', label: 'Ide & Inovasi Teknologi', subject: 'Diskusi: Ide & Inovasi Teknologi' },
+  { id: 'mobile', label: 'Kewirausahaan Pelajar', subject: 'Diskusi: Kewirausahaan Pelajar' },
+  { id: 'collab', label: 'Kolaborasi & Kegiatan', subject: 'Diskusi: Kolaborasi & Kegiatan' }
 ];
 
 export const ContactSection: React.FC = () => {
@@ -63,7 +63,7 @@ export const ContactSection: React.FC = () => {
   const mailtoLink = `mailto:${profileData.contact.email}?subject=${encodeURIComponent(
     selectedTopic.subject
   )}&body=${encodeURIComponent(
-    `Halo Reyhand,\n\nSaya ingin berdiskusi mengenai topik: ${selectedTopic.label}.\n\n[Tulis pesan Anda di sini]\n\nSalam,\n`
+    `Halo Keysha,\n\nSaya ingin berdiskusi mengenai topik: ${selectedTopic.label}.\n\n[Tulis pesan Anda di sini]\n\nSalam,\n`
   )}`;
 
   return (
@@ -364,7 +364,7 @@ export const ContactSection: React.FC = () => {
               <span className="hidden sm:inline text-[#64748b]">•</span>
             </div>
             <span className="text-[10px] sm:text-xs text-[#64748b] sm:text-[#0f172a] font-normal sm:font-bold">
-              Full-Stack &amp; Mobile Developer
+              {profileData.tagline}
             </span>
           </div>
 

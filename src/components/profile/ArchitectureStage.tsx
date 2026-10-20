@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Cpu, Code2 } from 'lucide-react';
+import { Brain, MessageSquare, Trophy } from 'lucide-react';
 
 interface ArchitectureStageProps {
   isFlooded: boolean;
@@ -11,28 +11,28 @@ export const ArchitectureStage: React.FC<ArchitectureStageProps> = ({ isFlooded 
 
   const pillars = [
     {
-      id: 'web',
-      icon: <Code2 className="w-5 h-5 text-[#0284c7]" />,
-      title: 'Fullstack Web Development',
-      subtitle: 'Laravel Monolith & Modern React Ecosystem',
-      desc: 'Membangun aplikasi web end-to-end dengan backend Laravel / Node.js dan frontend modern React, Next.js, serta TypeScript. Terbiasa mengelola pemodelan database relasional, optimasi query SQL, integrasi REST API, dan antarmuka reaktif yang responsif.',
-      tags: ['Laravel', 'Inertia.js', 'React', 'Next.js', 'TypeScript', 'PostgreSQL', 'MySQL', 'Tailwind CSS']
+      id: 'komunikasi',
+      icon: <MessageSquare className="w-5 h-5 text-[#0284c7]" />,
+      title: 'Komunikasi & Public Speaking',
+      subtitle: 'Presentasi & Diskusi Kelas',
+      desc: 'Menyampaikan gagasan secara runtut dan percaya diri, aktif mempresentasikan hasil kerja kelompok, serta memimpin sesi tanya jawab dengan komunikasi yang jelas dan persuasif.',
+      tags: ['Presentasi Terstruktur', 'Public Speaking', 'Diskusi Kelas', 'Argumentasi', 'Kerja Kelompok']
     },
     {
-      id: 'mobile',
-      icon: <Cpu className="w-5 h-5 text-[#0284c7]" />,
-      title: 'Mobile App Engineering',
-      subtitle: 'Cross-Platform Android & iOS Applications',
-      desc: 'Mengembangkan aplikasi mobile lintas platform menggunakan Flutter dan Dart. Menangani arsitektur state management reaktif, konsumsi RESTful API, persistensi data lokal/cloud, serta performa aplikasi yang stabil di Android dan iOS.',
-      tags: ['Flutter', 'Dart SDK', 'Mobile Architecture', 'State Management', 'REST APIs', 'Cloud Firestore']
+      id: 'akademik',
+      icon: <Brain className="w-5 h-5 text-[#0284c7]" />,
+      title: 'Analisis Sosial & Akademik',
+      subtitle: 'Kajian Kritis IPS',
+      desc: 'Menganalisis dinamika sosial dan fenomena masyarakat, memahami konsep dasar ekonomi serta sosiologi, dan menghubungkan materi pelajaran dengan isu di sekitar.',
+      tags: ['Sosiologi', 'Ekonomi', 'Analisis Sosial', 'Berpikir Kritis', 'Diskusi IPS']
     },
     {
-      id: 'linux',
-      icon: <Terminal className="w-5 h-5 text-[#8c6239]" />,
-      title: 'Linux & DevOps Workflows',
-      subtitle: 'NixOS Daily Driver & Server Management',
-      desc: 'Menggunakan NixOS sebagai sistem operasi harian dengan konfigurasi deklaratif Flakes. Terbiasa dengan manajemen server Linux (Debian/Arch), containerisasi Docker, otomatisasi skrip Bash, dan workflow kolaborasi Git.',
-      tags: ['NixOS Flakes', 'Arch Linux', 'Debian Server', 'Docker', 'Git Branching', 'Bash CLI']
+      id: 'olahraga',
+      icon: <Trophy className="w-5 h-5 text-[#8c6239]" />,
+      title: 'Basket & Kepemimpinan Tim',
+      subtitle: 'Point Guard, Playmaker & Kapten',
+      desc: 'Mengatur tempo permainan sebagai point guard dan playmaker, memimpin rekan satu tim sebagai kapten, serta menjaga fokus dan kerja sama saat bertanding.',
+      tags: ['Point Guard', 'Playmaker', 'Kapten Tim', 'Strategi Basket', 'Kerja Sama Tim', 'MVP Islamic Super League']
     }
   ];
 
@@ -126,7 +126,7 @@ export const ArchitectureStage: React.FC<ArchitectureStageProps> = ({ isFlooded 
 
           <div className="pt-4 border-t border-[#e8dbc0]">
             <span className="text-xs font-mono font-bold text-[#8c6239] block mb-2.5">
-              TECH STACK:
+              PERSONAL ARSENAL:
             </span>
             <div className="flex flex-wrap gap-2">
               {pillars[activePillar].tags.map((t) => (
@@ -154,10 +154,10 @@ export const ArchitectureStage: React.FC<ArchitectureStageProps> = ({ isFlooded 
           className="p-4 rounded-2xl bg-[#fffdf5] border border-[#e8dbc0] shadow-sm"
         >
           <span className="text-xs font-bold text-[#0f172a] block">
-            Clean Architecture
+            Kepemimpinan Tim
           </span>
           <p className="text-[11px] text-[#64748b] mt-1 leading-relaxed">
-            Struktur kode terorganisir dengan pemisahan dependensi dan modularitas tinggi.
+            Memimpin tim sebagai kapten dan playmaker di kompetisi basket.
           </p>
         </motion.div>
 
@@ -171,10 +171,10 @@ export const ArchitectureStage: React.FC<ArchitectureStageProps> = ({ isFlooded 
           className="p-4 rounded-2xl bg-[#fffdf5] border border-[#e8dbc0] shadow-sm"
         >
           <span className="text-xs font-bold text-[#0f172a] block">
-            Type-Safe Contract
+            Prestasi Basket
           </span>
           <p className="text-[11px] text-[#64748b] mt-1 leading-relaxed">
-            Keamanan tipe penuh dari skema database hingga interaksi klien.
+            Juara 1 Nesa Cup dan Juara 2 serta MVP Islamic Super League.
           </p>
         </motion.div>
 
@@ -188,10 +188,10 @@ export const ArchitectureStage: React.FC<ArchitectureStageProps> = ({ isFlooded 
           className="p-4 rounded-2xl bg-[#fffdf5] border border-[#e8dbc0] shadow-sm"
         >
           <span className="text-xs font-bold text-[#0f172a] block">
-            Linux Workflows
+            Disiplin Pelajar-Atlet
           </span>
           <p className="text-[11px] text-[#64748b] mt-1 leading-relaxed">
-            Konfigurasi deklaratif NixOS, containerisasi Docker, dan efisiensi terminal.
+            Menyeimbangkan latihan, pertandingan, dan tanggung jawab akademik.
           </p>
         </motion.div>
       </div>

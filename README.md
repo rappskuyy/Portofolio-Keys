@@ -99,4 +99,4 @@ Website ini adalah Single Page Application (SPA) murni berbasis Vite. Anda bisa 
 
 ## Lisensi
 
-Dirilis di bawah lisensi [MIT](LICENSE). Bebas digunakan, dimodifikasi, dan didistribusikan untuk keperluan pribadi maupun komersial. Dibuat dengan cinta oleh [Reyhand Astra](https://github.com/ryhndastra).
+Dirilis di bawah lisensi [MIT](LICENSE). Bebas digunakan, dimodifikasi, dan didistribusikan untuk keperluan pribadi maupun komersial. Portofolio personal M KEYSHA ALFARO.

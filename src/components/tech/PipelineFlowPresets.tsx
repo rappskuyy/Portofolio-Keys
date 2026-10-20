@@ -1,7 +1,7 @@
 import React from 'react';
-import { Layers, Globe, Smartphone, Server, Terminal, Lock } from 'lucide-react';
+import { Layers, Sparkles, Trophy, BookOpen, Compass, Heart } from 'lucide-react';
 
-export type FlowDomainId = 'all' | 'web' | 'mobile' | 'backend' | 'devops' | 'cybersecurity';
+export type FlowDomainId = 'all' | 'arsenal' | 'sports' | 'academic' | 'beyond' | 'bring';
 
 interface PipelineFlowPresetsProps {
   activeDomain: FlowDomainId;
@@ -17,44 +17,42 @@ export const PipelineFlowPresets: React.FC<PipelineFlowPresetsProps> = ({
     label: string;
     icon: React.FC<{ className?: string }>;
     tag: string;
-    isComingSoon?: boolean;
   }[] = [
     {
       id: 'all',
-      label: 'Semua Stack',
+      label: 'Semua Bidang',
       icon: Layers,
       tag: 'Semua'
     },
     {
-      id: 'web',
-      label: 'Frontend / Web',
-      icon: Globe,
-      tag: 'Web'
+      id: 'arsenal',
+      label: 'Personal Arsenal',
+      icon: Sparkles,
+      tag: 'Skill'
     },
     {
-      id: 'mobile',
-      label: 'Mobile App',
-      icon: Smartphone,
-      tag: 'Mobile'
+      id: 'sports',
+      label: 'Basket & Renang',
+      icon: Trophy,
+      tag: 'Olahraga'
     },
     {
-      id: 'backend',
-      label: 'Backend & DB',
-      icon: Server,
-      tag: 'Backend'
+      id: 'academic',
+      label: 'Akademik IPS',
+      icon: BookOpen,
+      tag: 'Kelas IPS'
     },
     {
-      id: 'devops',
-      label: 'DevOps & Linux',
-      icon: Terminal,
-      tag: 'DevOps'
+      id: 'beyond',
+      label: 'Beyond Classroom',
+      icon: Compass,
+      tag: 'Luar Kelas'
     },
     {
-      id: 'cybersecurity',
-      label: 'Cyber Security',
-      icon: Lock,
-      tag: 'Coming Soon',
-      isComingSoon: true
+      id: 'bring',
+      label: 'What I Bring',
+      icon: Heart,
+      tag: 'Karakter'
     }
   ];
 
@@ -62,10 +60,10 @@ export const PipelineFlowPresets: React.FC<PipelineFlowPresetsProps> = ({
     <div className="space-y-2.5">
       <div className="flex items-center justify-between">
         <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#0369a1]">
-          Kategori
+          Filter Kategori
         </span>
         <span className="text-[11px] font-mono text-[#64748b]">
-          Pilih kategori stack
+          Pilih kategori kemampuan &amp; aktivitas
         </span>
       </div>
 
@@ -74,30 +72,6 @@ export const PipelineFlowPresets: React.FC<PipelineFlowPresetsProps> = ({
         {domains.map((domain) => {
           const Icon = domain.icon;
           const isActive = activeDomain === domain.id;
-
-          if (domain.isComingSoon) {
-            return (
-              <div
-                key={domain.id}
-                title="Modul Cyber Security sedang dalam tahap persiapan"
-                className="p-3 rounded-2xl border-2 border-dashed border-[#94a3b8] bg-[#f1f5f9]/70 text-left opacity-50 cursor-not-allowed select-none flex flex-col justify-between"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="w-7 h-7 rounded-lg border border-[#94a3b8] flex items-center justify-center bg-[#e2e8f0] text-[#64748b]">
-                    <Icon className="w-3.5 h-3.5" />
-                  </div>
-
-                  <span className="text-[9px] font-mono font-bold uppercase px-1.5 py-0.5 rounded border bg-[#e2e8f0] text-[#64748b] border-[#cbd5e1]">
-                    {domain.tag}
-                  </span>
-                </div>
-
-                <div className="mt-2 text-xs font-bold text-[#64748b] tracking-tight leading-tight">
-                  {domain.label}
-                </div>
-              </div>
-            );
-          }
 
           return (
             <button
@@ -134,3 +108,4 @@ export const PipelineFlowPresets: React.FC<PipelineFlowPresetsProps> = ({
     </div>
   );
 };
+

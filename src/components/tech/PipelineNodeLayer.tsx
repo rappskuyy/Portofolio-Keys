@@ -1,45 +1,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiJavascript,
-  SiTailwindcss,
-  SiFlutter,
-  SiLaravel,
-  SiNodedotjs,
-  SiMysql,
-  SiPostgresql,
-  SiSupabase,
-  SiFirebase,
-  SiPrisma,
-  SiDocker,
-  SiLinux,
-  SiGit,
-  SiVercel
-} from '@icons-pack/react-simple-icons';
+  MessageSquare,
+  Brain,
+  Target,
+  Crown,
+  Timer,
+  Sparkles,
+  Trophy,
+  Medal,
+  Waves,
+  Award,
+  Users,
+  GraduationCap,
+  Flame,
+  Dumbbell,
+  Heart,
+  TrendingUp,
+  ShieldCheck,
+  Star,
+  Activity
+} from 'lucide-react';
 import type { TechItem, TechLayer } from '../../types/portfolio';
 import type { FlowDomainId } from './PipelineFlowPresets';
 
 const iconMap: Record<string, React.FC<{ size?: number; color?: string; className?: string }>> = {
-  react: SiReact,
-  nextdotjs: SiNextdotjs,
-  typescript: SiTypescript,
-  javascript: SiJavascript,
-  tailwindcss: SiTailwindcss,
-  flutter: SiFlutter,
-  laravel: SiLaravel,
-  nodejs: SiNodedotjs,
-  mysql: SiMysql,
-  postgresql: SiPostgresql,
-  supabase: SiSupabase,
-  firebase: SiFirebase,
-  prisma: SiPrisma,
-  docker: SiDocker,
-  linux: SiLinux,
-  git: SiGit,
-  vercel: SiVercel
+  messagesquare: MessageSquare,
+  brain: Brain,
+  target: Target,
+  crown: Crown,
+  timer: Timer,
+  sparkles: Sparkles,
+  trophy: Trophy,
+  medal: Medal,
+  waves: Waves,
+  award: Award,
+  users: Users,
+  graduationcap: GraduationCap,
+  flame: Flame,
+  dumbbell: Dumbbell,
+  heart: Heart,
+  trendingup: TrendingUp,
+  shieldcheck: ShieldCheck,
+  star: Star,
+  activity: Activity
 };
 
 interface PipelineNodeLayerProps {
@@ -72,10 +76,11 @@ export const PipelineNodeLayer: React.FC<PipelineNodeLayerProps> = ({
   // check if layer matches active domain filter
   const isLayerActiveInDomain =
     activeDomain === 'all' ||
-    (activeDomain === 'web' && layerId === 'client') ||
-    (activeDomain === 'mobile' && layerId === 'client') ||
-    (activeDomain === 'backend' && (layerId === 'backend' || layerId === 'database')) ||
-    (activeDomain === 'devops' && layerId === 'devops');
+    (activeDomain === 'arsenal' && layerId === 'arsenal') ||
+    (activeDomain === 'beyond' && layerId === 'beyond') ||
+    (activeDomain === 'bring' && layerId === 'bring') ||
+    (activeDomain === 'sports' && techItems.some((t) => t.category === 'sports')) ||
+    (activeDomain === 'academic' && techItems.some((t) => t.category === 'academic'));
 
   const handleInspectClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -167,10 +172,11 @@ export const PipelineNodeLayer: React.FC<PipelineNodeLayerProps> = ({
             const Icon = iconMap[tech.iconKey];
             const isToolActive =
               activeDomain === 'all' ||
-              (activeDomain === 'web' && tech.category === 'frontend') ||
-              (activeDomain === 'mobile' && tech.category === 'mobile') ||
-              (activeDomain === 'backend' && tech.category === 'backend') ||
-              (activeDomain === 'devops' && tech.category === 'tools');
+              (activeDomain === 'arsenal' && tech.layer === 'arsenal') ||
+              (activeDomain === 'beyond' && tech.layer === 'beyond') ||
+              (activeDomain === 'bring' && tech.layer === 'bring') ||
+              (activeDomain === 'sports' && tech.category === 'sports') ||
+              (activeDomain === 'academic' && tech.category === 'academic');
 
             const isToolSelected = isLayerActiveInDomain && selectedTech?.name === tech.name;
 
@@ -235,14 +241,14 @@ export const PipelineNodeLayer: React.FC<PipelineNodeLayerProps> = ({
 
       {/* layer inspection trigger */}
       <div className="mt-6 pt-3 border-t border-[#0f172a]/10 flex items-center justify-between text-[11px] font-mono text-[#64748b]">
-        <span>{techItems.length} Tools</span>
+        <span>{techItems.length} Poin &amp; Keahlian</span>
         {isLayerActiveInDomain ? (
           <button
             type="button"
             onClick={handleInspectClick}
             className="px-3 py-1 rounded-lg bg-[#faeed1] hover:bg-[#fde047] text-[#0f172a] font-bold border border-[#0f172a] transition-colors cursor-pointer flex items-center gap-1"
           >
-            <span>Detail Layer</span>
+            <span>Detail Kategori</span>
             <span>&rarr;</span>
           </button>
         ) : (
@@ -252,3 +258,4 @@ export const PipelineNodeLayer: React.FC<PipelineNodeLayerProps> = ({
     </motion.div>
   );
 };
+

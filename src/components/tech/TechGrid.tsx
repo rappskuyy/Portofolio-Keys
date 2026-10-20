@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Layers } from 'lucide-react';
+import { Trophy } from 'lucide-react';
 import type { Project, TechItem, TechLayer } from '../../types/portfolio';
-import { techStackData, projectsData } from '../../data/portfolioData';
+import { capabilitiesData, projectsData } from '../../data/portfolioData';
 import { PipelineFlowPresets, type FlowDomainId } from './PipelineFlowPresets';
 import { PipelineNodeLayer } from './PipelineNodeLayer';
 import { PipelineInspector } from './PipelineInspector';
@@ -13,26 +13,28 @@ interface TechGridProps {
 
 export const TechGrid: React.FC<TechGridProps> = ({ onOpenProject }) => {
   const [activeDomain, setActiveDomain] = useState<FlowDomainId>('all');
-  const [selectedLayer, setSelectedLayer] = useState<TechLayer>('client');
+  const [selectedLayer, setSelectedLayer] = useState<TechLayer>('arsenal');
   const [selectedTech, setSelectedTech] = useState<TechItem | null>(null);
 
-  // partition technologies by architectural layer
-  const clientTech = techStackData.filter((t) => t.layer === 'client');
-  const backendTech = techStackData.filter((t) => t.layer === 'backend');
-  const databaseTech = techStackData.filter((t) => t.layer === 'database');
-  const devopsTech = techStackData.filter((t) => t.layer === 'devops');
+  // partition capabilities by layer
+  const arsenalItems = capabilitiesData.filter((t) => t.layer === 'arsenal');
+  const awardsItems = capabilitiesData.filter((t) => t.layer === 'awards');
+  const beyondItems = capabilitiesData.filter((t) => t.layer === 'beyond');
+  const bringItems = capabilitiesData.filter((t) => t.layer === 'bring');
 
   const handleSelectDomain = (domain: FlowDomainId) => {
     setActiveDomain(domain);
     setSelectedTech(null);
 
     // automatically shift inspection layer to the primary active layer for that domain
-    if (domain === 'web' || domain === 'mobile') {
-      setSelectedLayer('client');
-    } else if (domain === 'backend') {
-      setSelectedLayer('backend');
-    } else if (domain === 'devops') {
-      setSelectedLayer('devops');
+    if (domain === 'arsenal' || domain === 'academic') {
+      setSelectedLayer('arsenal');
+    } else if (domain === 'sports') {
+      setSelectedLayer('awards');
+    } else if (domain === 'beyond') {
+      setSelectedLayer('beyond');
+    } else if (domain === 'bring') {
+      setSelectedLayer('bring');
     }
   };
 
@@ -63,23 +65,23 @@ export const TechGrid: React.FC<TechGridProps> = ({ onOpenProject }) => {
         {/* header */}
         <div className="space-y-4 pb-8 border-b-2 border-[#0f172a]/15">
           <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#fde047] text-[#0f172a] text-xs font-mono font-black border-2 border-[#0f172a] shadow-[3px_3px_0px_#0f172a] w-fit">
-            <span>03 // TECH STACK</span>
+            <span>03 // MY CAPABILITIES</span>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0f172a] tracking-tight leading-[1.08]">
-                Tech Stack & Tools
+                Personal Arsenal &amp; Capabilities
               </h2>
               <p className="text-sm sm:text-base font-medium text-[#475569] mt-2 max-w-2xl leading-relaxed">
-                Teknologi dan tools yang saya gunakan untuk membangun aplikasi web dan mobile.
+                Kumpulan keahlian diri, pencapaian kejuaraan basket &amp; renang, keaktifan belajar IPS di kelas, serta karakter unggul M Keysha Alfaro.
               </p>
             </div>
 
             <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-[#fffdf5] border-2 border-[#0f172a] shadow-[3px_3px_0px_#0f172a] shrink-0 self-start lg:self-auto">
-              <Layers className="w-4 h-4 text-[#0284c7]" />
+              <Trophy className="w-4 h-4 text-[#eab308]" />
               <span className="text-xs font-mono font-bold text-[#0f172a]">
-                {techStackData.length} Tools & Frameworks
+                {capabilitiesData.length} Keahlian, Prestasi &amp; Karakter
               </span>
             </div>
           </div>
@@ -104,64 +106,64 @@ export const TechGrid: React.FC<TechGridProps> = ({ onOpenProject }) => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-            {/* client layer */}
+            {/* 01: Personal Arsenal */}
             <PipelineNodeLayer
-              layerId="client"
+              layerId="arsenal"
               stepNumber="01"
-              title="Frontend & Web"
-              subtitle="Client UI"
-              roleDescription="Pengembangan antarmuka web modern dan aplikasi mobile cross-platform."
-              techItems={clientTech}
+              title="Personal Arsenal"
+              subtitle="Skill & Keunggulan Diri"
+              roleDescription="Kumpulan kemampuan strategis, kepemimpinan tim, komunikasi kelas, serta daya analisis sosial IPS."
+              techItems={arsenalItems}
               activeDomain={activeDomain}
               selectedTech={selectedTech}
               onSelectTech={handleSelectTech}
               onSelectLayer={handleSelectLayer}
-              isLayerSelected={selectedLayer === 'client'}
+              isLayerSelected={selectedLayer === 'arsenal'}
             />
 
-            {/* backend layer */}
+            {/* 02: Activities & Awards */}
             <PipelineNodeLayer
-              layerId="backend"
+              layerId="awards"
               stepNumber="02"
-              title="Backend"
-              subtitle="Server & API"
-              roleDescription="Pengembangan server, REST API, dan integrasi backend."
-              techItems={backendTech}
+              title="Activities & Awards"
+              subtitle="Organisasi & Lomba"
+              roleDescription="Pencapaian medali kejuaraan basket pelajar, kompetisi renang, dan rekam jejak kepanitiaan sekolah."
+              techItems={awardsItems}
               activeDomain={activeDomain}
               selectedTech={selectedTech}
               onSelectTech={handleSelectTech}
               onSelectLayer={handleSelectLayer}
-              isLayerSelected={selectedLayer === 'backend'}
+              isLayerSelected={selectedLayer === 'awards'}
             />
 
-            {/* database layer */}
+            {/* 03: Beyond the Classroom */}
             <PipelineNodeLayer
-              layerId="database"
+              layerId="beyond"
               stepNumber="03"
-              title="Database"
-              subtitle="Data & Storage"
-              roleDescription="Pengelolaan data relasional dan database cloud real-time."
-              techItems={databaseTech}
+              title="Beyond the Classroom"
+              subtitle="Aktivitas di Luar Kelas"
+              roleDescription="Klub basket regional, sesi latihan renang ketahanan aerobik, dan kepedulian bakti sosial muda."
+              techItems={beyondItems}
               activeDomain={activeDomain}
               selectedTech={selectedTech}
               onSelectTech={handleSelectTech}
               onSelectLayer={handleSelectLayer}
-              isLayerSelected={selectedLayer === 'database'}
+              isLayerSelected={selectedLayer === 'beyond'}
             />
 
-            {/* devops layer */}
+            {/* 04: What I Bring */}
             <PipelineNodeLayer
-              layerId="devops"
+              layerId="bring"
               stepNumber="04"
-              title="DevOps & Tools"
-              subtitle="Environment"
-              roleDescription="Sistem operasi Linux, kontainer Docker, dan deployment."
-              techItems={devopsTech}
+              title="What I Bring"
+              subtitle="Karakter & Nilai Diri"
+              roleDescription="Prinsip mentalitas juara pantang menyerah, sportivitas fair play, energi positif, dan kerja sama tim."
+              techItems={bringItems}
               activeDomain={activeDomain}
               selectedTech={selectedTech}
               onSelectTech={handleSelectTech}
               onSelectLayer={handleSelectLayer}
-              isLayerSelected={selectedLayer === 'devops'}
+              isLayerSelected={selectedLayer === 'bring'}
             />
           </div>
         </div>
